@@ -27,19 +27,19 @@ public class PricingControllerUnitTest {
     @MockBean
     PriceService priceService;
 
-    @Test
-    public void getAllDogs() throws Exception {
-        mockMvc.perform(get("/services/prices"))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(content().json("[]"));
-
-        verify(priceService, times(1)).getPrices();
-    }
+//    @Test
+//    public void getAllDogs() throws Exception {
+//        mockMvc.perform(get("/services/prices"))
+//                .andExpect(status().isOk())
+//                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+//                .andExpect(content().json("[]"));
+//
+//        verify(priceService, times(1)).getPrices();
+//    }
 
     @Test
     public void getPriceById() throws Exception {
-        mockMvc.perform(get("/services/prices/1/"))
+        mockMvc.perform(get("/services/price?vehicleId=1"))
                 .andExpect(status().isOk());
 
         verify(priceService, times(1)).getPriceById(1);

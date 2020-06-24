@@ -29,18 +29,18 @@ public class PricingControllerIntegrationTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    @Test
-    public void getPrices() {
-        ResponseEntity<List> response =
-                this.restTemplate.getForEntity("http://localhost:" + port + "/services/prices", List.class);
-
-        assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
-    }
+//    @Test
+//    public void getPrices() {
+//        ResponseEntity<List> response =
+//                this.restTemplate.getForEntity("http://localhost:" + port + "/services/prices", List.class);
+//
+//        assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
+//    }
 
     @Test
     public void getPriceById() {
         ResponseEntity<Price> response =
-                this.restTemplate.getForEntity("http://localhost:" + port + "/services/prices/1", Price.class);
+                this.restTemplate.getForEntity("http://localhost:" + port + "/services/price?vehicleId=1", Price.class);
 
         assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
     }
